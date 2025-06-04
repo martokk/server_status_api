@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  server_status_api:
+    container_name: "server_status_api"
+    image: ghcr.io/martokk/server_status_api:latest
+    restart: unless-stopped
+    volumes:
+      # - /home/ubuntu/volumes/server_status_api/data:/server_status_api/data
+      - ./app:/app
+    ports:
+      - "5000:5000"
+    user: "${UID}:${GID}"
